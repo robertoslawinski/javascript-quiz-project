@@ -30,5 +30,6 @@ class Question {
 
 }
 
+
 // let question1 = new Question("food",[1, 7, 4, 5], 4, "hard");
 // console.log(question1.shuffleChoices());

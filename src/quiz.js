@@ -38,6 +38,7 @@ class Quiz {
             this.questions[currentIndex]= this.questions[randomIndex];
             this.questions[randomIndex] = temp;
         }
+        
    
     }
 
@@ -61,7 +62,69 @@ class Quiz {
         }
     }
     
+    filterQuestionsByDifficulty(difficulty) {
 
-    }
+        if( difficulty >= 1 && difficulty <=3){
+            this.questions = this.questions.filter(question =>{ 
+                if(question.difficulty === difficulty){
+                    return true;
+                }
+        })
+        return this.questions
+        }else{
+            return this.questions
+        }
+        
 
+        }
+
+        averageDifficulty() {
+            
+            const totalDifficulty = this.questions.reduce ((acc, question) => {
+                return acc + question.difficulty;
+
+            }, 0); 
+
+            const average = totalDifficulty / this.questions.length; 
+            return average 
+        }
+    
+
+}
+
+// const questions = [
+//         {
+//           text: "Question 1",
+//           choices: ["a", "b", "c"],
+//           answer: "a",
+//           difficulty: 1,
+//         },
+//         {
+//           text: "Question 2",
+//           choices: ["d", "e", "f"],
+//           answer: "d",
+//           difficulty: 2,
+//         },
+//         {
+//           text: "Question 3",
+//           choices: ["g", "h", "i"],
+//           answer: "g",
+//           difficulty: 2,
+//         },
+//         {
+//           text: "Question 4",
+//           choices: ["j", "k", "l"],
+//           answer: "j",
+//           difficulty: 1,
+//         },
+//         {
+//           text: "Question 5",
+//           choices: ["m", "n", "o"],
+//           answer: "m",
+//           difficulty: 3,
+//         },
+//       ];
+// let question1 = new Quiz(questions, "test", 60);
+    
+// console.log(question1.filterQuestionsByDifficulty(1))
     
